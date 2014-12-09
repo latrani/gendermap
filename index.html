@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Gender Widget</title>
+    <link rel="stylesheet" type="text/css" href="css/gendermap.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/gendermap.js"></script>
+</head>
+<body>
+    <p>
+        On the map below, click the point that best describes your gender in a furry context:
+    </p>
+    <div class="gender-widget">
+        <img src="img/gendermap.png"/>
+        <div class="map-area">
+            <div class="marker">&times;</div>
+        </div>
+    </div>
+    <div class="user-values">
+        <div class="user-value">
+            Female: <span class="user-value-text user-value-female"></span>
+        </div>
+        <div class="user-value">
+            Male: <span class="user-value-text user-value-male"></span>
+        </div>
+    </div>
+    <div class="server-values">
+        <h2>Values sent to server</h2>
+        <h3>(All these should be hidden inputs for the production version)</h3>
+        <div>
+            <label for="gender-map-male">Male Value</label>
+            <input id="gender-map-male" name="gender-map-male"></input>
+        </div>
+        <div>
+            <label for="gender-map-male-quantized">Quantized Male Value</label>
+            <input id="gender-map-male-quantized" name="gender-map-male-quantized"></input>
+        </div>
+        <div>
+            <label for="gender-map-female">Female Value</label>
+            <input id="gender-map-female" name="gender-map-female"></input>
+        </div>
+        <div>
+            <label for="gender-map-female-quantized">Quantized Female Value</label>
+            <input id="gender-map-female-quantized" name="gender-map-female-quantized"></input>
+        </div>
+    </div>
+</body>
+</html>
