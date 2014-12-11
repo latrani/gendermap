@@ -4,17 +4,29 @@
     <link rel="stylesheet" type="text/css" href="css/gendermap.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/gendermap.js"></script>
+    <script>
+
+$(function(){
+  'use strict';
+
+  $('.gender-widget').gendermap().on('mapClick', function(){
+    var gendermapData = $(this).data('gendermap');
+    $('.user-value-male').text((Math.floor(gendermapData.m * 21) * 5) + '%');
+    $('.user-value-female').text((Math.floor(gendermapData.f * 21) * 5) + '%');
+    $('#gender-map-male').val(gendermapData.m);
+    $('#gender-map-male-quantized').val(Math.ceil(gendermapData.m * 5));
+    $('#gender-map-female').val(gendermapData.f);
+    $('#gender-map-female-quantized').val(Math.ceil(gendermapData.f * 5));
+  });
+});
+
+    </script>
 </head>
 <body>
     <p>
         On the map below, click the point that best describes your gender in a furry context:
     </p>
-    <div class="gender-widget">
-        <img src="img/gendermap.png"/>
-        <div class="map-area">
-            <div class="marker">&times;</div>
-        </div>
-    </div>
+    <div class="gender-widget"></div>
     <div class="user-values">
         <div class="user-value">
             Female: <span class="user-value-text user-value-female"></span>

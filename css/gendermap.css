@@ -7,13 +7,14 @@ p {
     width: 600px;
 }
 
-.gender-widget {
+.gendermap-container {
     position: relative;
     width: 600px;
     height: 400px;
+    background: url(../img/gendermap.png);
 }
 
-.map-area {
+.gendermap-area {
     position: absolute;
     height: 336px;
     width: 336px;
@@ -21,7 +22,7 @@ p {
     left: 123px;
 }
 
-.marker {
+.gendermap-marker {
     display: none;
     color: #CC00FF;
     font-size: 30px;
@@ -30,7 +31,7 @@ p {
     line-height: 30px;
     height: 30px;
     width: 30px;
-    margin-top: -15px;
+    margin-top: -18px;
     margin-left: -15px;
 }
 
