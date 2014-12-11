@@ -1,0 +1,11 @@
+{
+  "name": "gendermap",
+  "version": "0.1.0",
+  "main": "js/gendermap.js",
+  "ignore": [
+    ".jshintrc"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
