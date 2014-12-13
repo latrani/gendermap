@@ -11,8 +11,6 @@ $(function(){
 
   $('.gender-widget').gendermap().on('mapClick', function(){
     var gendermapData = $(this).data('gendermap');
-    $('.user-value-male').text((Math.floor(gendermapData.m * 21) * 5) + '%');
-    $('.user-value-female').text((Math.floor(gendermapData.f * 21) * 5) + '%');
     $('#gender-map-male').val(gendermapData.m);
     $('#gender-map-male-quantized').val(Math.ceil(gendermapData.m * 5));
     $('#gender-map-female').val(gendermapData.f);
@@ -21,23 +19,37 @@ $(function(){
 });
 
     </script>
+    <style>
+
+.server-values {
+    clear: both;
+    margin: 10px 0;
+    background-color: #CCCCCC;
+    border: solid 1px black;
+    padding: 10px;
+    width: 580px;
+}
+
+.server-values h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.server-values label {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+}
+
+    </style>
 </head>
 <body>
     <p>
         On the map below, click the point that best describes your gender in a furry context:
     </p>
     <div class="gender-widget"></div>
-    <div class="user-values">
-        <div class="user-value">
-            Female: <span class="user-value-text user-value-female"></span>
-        </div>
-        <div class="user-value">
-            Male: <span class="user-value-text user-value-male"></span>
-        </div>
-    </div>
     <div class="server-values">
-        <h2>Values sent to server</h2>
-        <h3>(All these should be hidden inputs for the production version)</h3>
+        <h2>Values updated from .data() on custom event:</h2>
         <div>
             <label for="gender-map-male">Male Value</label>
             <input id="gender-map-male" name="gender-map-male"></input>

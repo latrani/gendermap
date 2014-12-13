@@ -1,6 +1,23 @@
 (function ($) {
   'use strict';
 
+  var mapHTML =
+  '<div class="gendermap-content">' +
+    '<div class="gendermap-container">' +
+      '<div class="gendermap-area">' +
+        '<div class="gendermap-marker">&times;</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="gendermap-values">' +
+      '<div class="gendermap-value">' +
+        'Male: <span class="gendermap-value-text gendermap-value-male"></span>' +
+      '</div>' +
+      '<div class="gendermap-value">' +
+        'Female: <span class="gendermap-value-text gendermap-value-female"></span>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
+
   var getDiamondCoords = function(event, $element){
     var height = $element.height();
     var offset = $element.offset();
@@ -21,7 +38,9 @@
 
   $.fn.gendermap = function() {
     var $mainEl = this;
-    var $maparea = $('<div class="gendermap-area"><div class="gendermap-marker">&times;</div></div>')
+    var $content = $(mapHTML);
+
+    $content.find('.gendermap-area')
       .on('mousemove', function(event){
         if (getDiamondCoords(event, $(this)).inside) {
           $(this).css('cursor', 'crosshair');
@@ -34,6 +53,8 @@
         var coords = getDiamondCoords(event, $(this));
         if (coords.inside) {
           $('.gendermap-marker').show().css({left: coords.x, top: coords.y});
+          $('.gendermap-value-male').text((Math.floor(coords.m * 21) * 5) + '%');
+          $('.gendermap-value-female').text((Math.floor(coords.f * 21) * 5) + '%');
           $mainEl
             .data('gendermap', {
               m: coords.m,
@@ -43,6 +64,6 @@
         }
       });
 
-    return $mainEl.addClass('gendermap-container').append($maparea);
+    return $mainEl.append($content);
   };
 }(jQuery));
