@@ -43,7 +43,16 @@
     text-align: center;
 }
 
+.gendermap-value.male {
+    color: #00C;
+}
+
+.gendermap-value.female {
+    color: #0A0;
+}
+
 .gendermap-value-text {
     display: inline-block;
-    width: 3em;
+    text-align: right;
+    width: 2.5em;
 }

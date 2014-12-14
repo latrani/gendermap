@@ -9,11 +9,11 @@
       '</div>' +
     '</div>' +
     '<div class="gendermap-values">' +
-      '<div class="gendermap-value">' +
-        'Male: <span class="gendermap-value-text gendermap-value-male"></span>' +
+      '<div class="gendermap-value male">' +
+        'Male: <span class="gendermap-value-text"></span>' +
       '</div>' +
-      '<div class="gendermap-value">' +
-        'Female: <span class="gendermap-value-text gendermap-value-female"></span>' +
+      '<div class="gendermap-value female">' +
+        'Female: <span class="gendermap-value-text"></span>' +
       '</div>' +
     '</div>' +
   '</div>';
@@ -43,8 +43,8 @@
 
     var setValues = function(coords) {
       $('.gendermap-marker', $mainEl).show().css({left: coords.x, top: coords.y});
-      $('.gendermap-value-male', $mainEl).text((Math.floor(coords.m * 21) * 5) + '%');
-      $('.gendermap-value-female', $mainEl).text((Math.floor(coords.f * 21) * 5) + '%');
+      $('.gendermap-value.male .gendermap-value-text', $mainEl).text((Math.floor(coords.m * 21) * 5) + '%');
+      $('.gendermap-value.female .gendermap-value-text', $mainEl).text((Math.floor(coords.f * 21) * 5) + '%');
       $mainEl
         .data('gendermap', {
           m: coords.m,
