@@ -54,7 +54,7 @@
     };
 
     $content.find('.gendermap-area')
-      .on('mousemove', function(event){
+      .on('mousemove touchmove', function(event){
         var coords = getDiamondCoords(event, $(this));
 
         if (coords.inside) {
