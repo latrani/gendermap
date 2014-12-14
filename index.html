@@ -9,17 +9,35 @@
 $(function(){
   'use strict';
 
-  $('.gender-widget').gendermap().on('mapClick', function(){
+  $('.identity-widget').gendermap().on('mapClick', function(){
     var gendermapData = $(this).data('gendermap');
-    $('#gender-map-male').val(gendermapData.m);
-    $('#gender-map-male-quantized').val(Math.ceil(gendermapData.m * 5));
-    $('#gender-map-female').val(gendermapData.f);
-    $('#gender-map-female-quantized').val(Math.ceil(gendermapData.f * 5));
+    $('#identity-male').val(gendermapData.m);
+    $('#identity-male-quantized').val(Math.ceil(gendermapData.m * 5));
+    $('#identity-female').val(gendermapData.f);
+    $('#identity-female-quantized').val(Math.ceil(gendermapData.f * 5));
   });
+
+  $('.expression-widget').gendermap().on('mapClick', function(){
+    var gendermapData = $(this).data('gendermap');
+    $('#expression-male').val(gendermapData.m);
+    $('#expression-male-quantized').val(Math.ceil(gendermapData.m * 5));
+    $('#expression-female').val(gendermapData.f);
+    $('#expression-female-quantized').val(Math.ceil(gendermapData.f * 5));
+  });
+
 });
+
 
     </script>
     <style>
+
+body {
+    font-family: "Helvetica Neue", "Helvetica", "Droid Sans", "Arial", sans-serif;
+}
+
+p {
+    font-size: 120%;
+}
 
 .server-values {
     clear: both;
@@ -30,7 +48,7 @@ $(function(){
     width: 580px;
 }
 
-.server-values h2 {
+.server-values h2, .server-values h3 {
     margin: 0;
     margin-bottom: 10px;
 }
@@ -41,31 +59,61 @@ $(function(){
     text-align: right;
 }
 
+.server-values section {
+    margin: 15px 0;
+}
+
     </style>
 </head>
 <body>
     <p>
-        On the map below, click the point that best describes your gender in a furry context:
+        On the map below, click the location that best describes your <a href="http://en.wikipedia.org/wiki/Gender_identity">gender <em>identity</em></a>:
     </p>
-    <div class="gender-widget"></div>
+    <div class="identity-widget"></div>
+    <p>
+        On the map below, click the location that best describes your <a href="http://rationalwiki.org/wiki/Gender_expression">gender <em>expression</em></a>:
+    </p>
+    <div class="expression-widget"></div>
     <div class="server-values">
         <h2>Values updated from .data() on custom event:</h2>
-        <div>
-            <label for="gender-map-male">Male Value</label>
-            <input id="gender-map-male" name="gender-map-male"></input>
-        </div>
-        <div>
-            <label for="gender-map-male-quantized">Quantized Male Value</label>
-            <input id="gender-map-male-quantized" name="gender-map-male-quantized"></input>
-        </div>
-        <div>
-            <label for="gender-map-female">Female Value</label>
-            <input id="gender-map-female" name="gender-map-female"></input>
-        </div>
-        <div>
-            <label for="gender-map-female-quantized">Quantized Female Value</label>
-            <input id="gender-map-female-quantized" name="gender-map-female-quantized"></input>
-        </div>
+        <section>
+            <h3>Identity:</h3>
+            <div>
+                <label for="gender-map-male">Male Value</label>
+                <input id="identity-male" name="gender-map-male"></input>
+            </div>
+            <div>
+                <label for="gender-map-male-quantized">Quantized Male Value</label>
+                <input id="identity-male-quantized" name="gender-map-male-quantized"></input>
+            </div>
+            <div>
+                <label for="gender-map-female">Female Value</label>
+                <input id="identity-female" name="gender-map-female"></input>
+            </div>
+            <div>
+                <label for="gender-map-female-quantized">Quantized Female Value</label>
+                <input id="identity-female-quantized" name="gender-map-female-quantized"></input>
+            </div>
+        </section>
+        <section>
+            <h3>Expression:</h3>
+            <div>
+                <label for="gender-map-male">Male Value</label>
+                <input id="expression-male" name="gender-map-male"></input>
+            </div>
+            <div>
+                <label for="gender-map-male-quantized">Quantized Male Value</label>
+                <input id="expression-male-quantized" name="gender-map-male-quantized"></input>
+            </div>
+            <div>
+                <label for="gender-map-female">Female Value</label>
+                <input id="expression-female" name="gender-map-female"></input>
+            </div>
+            <div>
+                <label for="gender-map-female-quantized">Quantized Female Value</label>
+                <input id="expression-female-quantized" name="gender-map-female-quantized"></input>
+            </div>
+        </section>
     </div>
 </body>
 </html>

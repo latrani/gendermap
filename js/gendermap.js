@@ -52,9 +52,9 @@
       .on('click', function(event) {
         var coords = getDiamondCoords(event, $(this));
         if (coords.inside) {
-          $('.gendermap-marker').show().css({left: coords.x, top: coords.y});
-          $('.gendermap-value-male').text((Math.floor(coords.m * 21) * 5) + '%');
-          $('.gendermap-value-female').text((Math.floor(coords.f * 21) * 5) + '%');
+          $('.gendermap-marker', $mainEl).show().css({left: coords.x, top: coords.y});
+          $('.gendermap-value-male', $mainEl).text((Math.floor(coords.m * 21) * 5) + '%');
+          $('.gendermap-value-female', $mainEl).text((Math.floor(coords.f * 21) * 5) + '%');
           $mainEl
             .data('gendermap', {
               m: coords.m,

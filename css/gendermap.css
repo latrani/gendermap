@@ -1,12 +1,3 @@
-body {
-    font-family: "Helvetica Neue", "Helvetica", "Droid Sans", "Arial", sans-serif;
-}
-
-p {
-    font-size: 120%;
-    width: 600px;
-}
-
 .gendermap-container {
     position: relative;
     width: 600px;
@@ -33,6 +24,11 @@ p {
     width: 30px;
     margin-top: -18px;
     margin-left: -15px;
+}
+
+.gendermap-values {
+    overflow: auto;
+    zoom: 1;
 }
 
 .gendermap-value {
