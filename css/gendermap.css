@@ -6,6 +6,10 @@
 }
 
 .gendermap-area {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     position: absolute;
     height: 336px;
     width: 336px;

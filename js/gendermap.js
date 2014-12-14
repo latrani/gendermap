@@ -39,28 +39,43 @@
   $.fn.gendermap = function() {
     var $mainEl = this;
     var $content = $(mapHTML);
+    var clicking = false;
+
+    var setValues = function(coords) {
+      $('.gendermap-marker', $mainEl).show().css({left: coords.x, top: coords.y});
+      $('.gendermap-value-male', $mainEl).text((Math.floor(coords.m * 21) * 5) + '%');
+      $('.gendermap-value-female', $mainEl).text((Math.floor(coords.f * 21) * 5) + '%');
+      $mainEl
+        .data('gendermap', {
+          m: coords.m,
+          f: coords.f
+        })
+        .trigger('mapClick');
+    };
 
     $content.find('.gendermap-area')
       .on('mousemove', function(event){
-        if (getDiamondCoords(event, $(this)).inside) {
+        var coords = getDiamondCoords(event, $(this));
+
+        if (coords.inside) {
           $(this).css('cursor', 'crosshair');
+          if (clicking) {
+            setValues(coords);
+          }
         }
         else {
           $(this).css('cursor', 'default');
         }
       })
-      .on('click', function(event) {
+      .on('mousedown mouseup', function(event) {
+        clicking = !clicking;
+
+        // Prevent cursor change to text-select in webkit
+        event.originalEvent.preventDefault();
+
         var coords = getDiamondCoords(event, $(this));
         if (coords.inside) {
-          $('.gendermap-marker', $mainEl).show().css({left: coords.x, top: coords.y});
-          $('.gendermap-value-male', $mainEl).text((Math.floor(coords.m * 21) * 5) + '%');
-          $('.gendermap-value-female', $mainEl).text((Math.floor(coords.f * 21) * 5) + '%');
-          $mainEl
-            .data('gendermap', {
-              m: coords.m,
-              f: coords.f
-            })
-            .trigger('mapClick');
+          setValues(coords);
         }
       });
 
